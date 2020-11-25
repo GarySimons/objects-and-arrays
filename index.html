@@ -30,8 +30,9 @@
 
     // You might think we can just do something like this:
     team[3] = 'Lux';
-    console.log(team);
-    console.log(players);
+    console.log(team); 
+    console.log(players); // these now both have added Lux to end of list because team[3] references bacl to original players variable. This is a REFERENCE
+
 
     // however what happens when we update that array?
 
@@ -42,12 +43,15 @@
     // Why? It's because that is an array reference, not an array copy. They both point to the same array!
 
     // So, how do we fix this? We take a copy instead!
+    const team2 = players.slice() // when you slice with () blank, it makes a copy of that array.
+    const team3 = [].concat(players); // this concatenates, and does the same thing
 
     // one way
 
     // or create a new array and concat the old one in
 
     // or use the new ES6 Spread
+    const team4 = [...players]; // this ES6 method uses spread ... to get the array contents
 
     // now when we update it, the original one isn't changed
 
